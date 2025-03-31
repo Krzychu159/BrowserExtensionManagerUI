@@ -1,7 +1,102 @@
+import { useState } from "react";
 import "./App.css";
+import Services from "./components/Services";
+
 import settings from "./assets/images/icon-sun.svg";
 
 function App() {
+  const [services, setServices] = useState([
+    {
+      id: 1,
+      name: "Dev Lens",
+      description:
+        " Quickly inspect page layouts and visualize element boundaries",
+      logo: "./assets/images/logo-devlens.svg",
+      active: true,
+    },
+    {
+      id: 2,
+      name: "StyleSpy ",
+      description: "Instantly analyze and copy CSS from any webpage element",
+      logo: "./assets/images/logo-style-spy.svg",
+      active: false,
+    },
+    {
+      id: 3,
+      name: "SpeedBoost  ",
+      description: "Instantly analyze and copy CSS from any webpage element",
+      logo: "./assets/images/logo-style-spy.svg",
+      active: false,
+    },
+    {
+      id: 4,
+      name: "JSONWizard  ",
+      description: "Instantly analyze and copy CSS from any webpage element",
+      logo: "./assets/images/logo-style-spy.svg",
+      active: false,
+    },
+    {
+      id: 5,
+      name: "TabMaster Pro ",
+      description: "Instantly analyze and copy CSS from any webpage element",
+      logo: "./assets/images/logo-style-spy.svg",
+      active: false,
+    },
+    {
+      id: 6,
+      name: "ViewportBuddy  ",
+      description: "Instantly analyze and copy CSS from any webpage element",
+      logo: "./assets/images/logo-style-spy.svg",
+      active: false,
+    },
+    {
+      id: 7,
+      name: "Markup Notes ",
+      description: "Instantly analyze and copy CSS from any webpage element",
+      logo: "./assets/images/logo-style-spy.svg",
+      active: false,
+    },
+    {
+      id: 8,
+      name: "GridGuides",
+      description: "Instantly analyze and copy CSS from any webpage element",
+      logo: "./assets/images/logo-style-spy.svg",
+      active: false,
+    },
+    {
+      id: 9,
+      name: "Palette Picker",
+      description: "Instantly analyze and copy CSS from any webpage element",
+      logo: "./assets/images/logo-style-spy.svg",
+      active: false,
+    },
+    {
+      id: 10,
+      name: "LinkChecker",
+      description: "Instantly analyze and copy CSS from any webpage element",
+      logo: "./assets/images/logo-style-spy.svg",
+      active: false,
+    },
+    {
+      id: 11,
+      name: "DOM Snapshot",
+      description: "Instantly analyze and copy CSS from any webpage element",
+      logo: "./assets/images/logo-style-spy.svg",
+      active: false,
+    },
+    {
+      id: 12,
+      name: "ConsolePlus",
+      description: "Instantly analyze and copy CSS from any webpage element",
+      logo: "./assets/images/logo-style-spy.svg",
+      active: false,
+    },
+  ]);
+
+  const removeService = (id) => {
+    setServices(services.filter((service) => service.id !== id));
+  };
+
   return (
     <section>
       <div className="header">
@@ -12,6 +107,8 @@ function App() {
             height="41"
             fill="none"
             theme="dark"
+            viewBox="0 0 179 41"
+            preserveAspectRatio="xMidYMid meet"
           >
             <g clip-path="url(#a)">
               <path
@@ -44,21 +141,9 @@ function App() {
           <button>Inactive</button>
         </div>
       </div>
-      <div>{/* elements list */}</div>
-      {/* All Active Inactive DevLens Quickly inspect page layouts and visualize
-      element boundaries. Remove StyleSpy Instantly analyze and copy CSS from
-      any webpage element. Remove SpeedBoost Optimizes browser resource usage to
-      accelerate page loading. Remove JSONWizard Formats, validates, and
-      prettifies JSON responses in-browser. Remove TabMaster Pro Organizes
-      browser tabs into groups and sessions. Remove ViewportBuddy Simulates
-      various screen resolutions directly within the browser. Remove Markup
-      Notes Enables annotation and notes directly onto webpages for
-      collaborative debugging. Remove GridGuides Overlay customizable grids and
-      alignment guides on any webpage. Remove Palette Picker Instantly extracts
-      color palettes from any webpage. Remove LinkChecker Scans and highlights
-      broken links on any page. Remove DOM Snapshot Capture and export DOM
-      structures quickly. Remove ConsolePlus Enhanced developer console with
-      advanced filtering and logging. Remove */}
+      <div>
+        <Services services={services} removeService={removeService} />
+      </div>
     </section>
   );
 }

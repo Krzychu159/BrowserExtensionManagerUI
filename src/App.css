@@ -1,10 +1,11 @@
 section {
   max-width: 800px;
   margin: 0 auto;
+  color: white;
 }
 .header {
   width: 100%;
-  height: 50px;
+  height: 40px;
   background-color: hsl(226, 25%, 17%);
   display: flex;
   justify-content: space-between;
@@ -14,12 +15,12 @@ section {
   margin-top: 30px;
 }
 .logo svg {
-  height: 40px;
-  margin-left: 0.5em;
+  height: 30px;
 }
+
 .settingsIcon {
-  width: 40px;
-  height: 40px;
+  width: 35px;
+  height: 35px;
   border-radius: 10px;
   background-color: hsl(225, 23%, 24%);
   display: flex;
@@ -44,14 +45,94 @@ section {
   display: flex;
   gap: 8px;
 }
-button {
-  border: 1px solid hsl(226, 25%, 17%);
-  background: hsl(226, 11%, 37%);
+.buttons button {
+  border: none;
+  background: hsl(226, 25%, 17%);
   color: white;
   padding: 8px 12px;
   border-radius: 15px;
+  border: 0.3px solid hsl(226, 25%, 40%);
 }
 button:hover {
   background-color: hsl(3, 86%, 64%);
   color: hsl(226, 25%, 17%);
+}
+
+/* services boxes */
+.serviceContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-top: 25px;
+}
+.serviceBox {
+  background: hsl(226, 25%, 17%);
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+.infoLine {
+  display: flex;
+  flex-direction: row;
+}
+.modeLine {
+  margin-top: 25px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.modeLine button {
+  border: 0.3px solid hsl(226, 25%, 40%);
+  background: hsl(226, 25%, 17%);
+  color: white;
+  padding: 7px 10px;
+  border-radius: 15px;
+}
+
+/* przełącznik */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 35px;
+  height: 18px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: hsl(226, 25%, 30%);
+  transition: 0.3s;
+  border-radius: 18px;
+}
+
+.slider:before {
+  content: "";
+  position: absolute;
+  height: 14px;
+  width: 14px;
+  left: 2px;
+  bottom: 2px;
+  background-color: white;
+  transition: 0.3s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: hsl(3, 86%, 64%);
+}
+
+input:checked + .slider:before {
+  transform: translateX(17px);
 }
