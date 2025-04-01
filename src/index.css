@@ -10,3 +10,20 @@ body {
   height: 100vh;
   font-family: "Noto Sans", sans-serif;
 }
+#root {
+  display: flex;
+
+  height: 100%;
+}
+button {
+  cursor: pointer;
+}
+/* mobile */
+
+@media (max-width: 768px) {
+  body {
+    background-size: 100% 100%;
+    height: auto;
+    padding: 0 10px;
+  }
+}

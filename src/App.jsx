@@ -3,6 +3,7 @@ import "./App.css";
 import Services from "./components/Services";
 
 import settings from "./assets/images/icon-sun.svg";
+import Filters from "./components/Filters";
 
 function App() {
   const [services, setServices] = useState([
@@ -19,83 +20,98 @@ function App() {
       name: "StyleSpy ",
       description: "Instantly analyze and copy CSS from any webpage element",
       logo: "./assets/images/logo-style-spy.svg",
-      active: false,
+      active: true,
     },
     {
       id: 3,
       name: "SpeedBoost  ",
       description: "Instantly analyze and copy CSS from any webpage element",
-      logo: "./assets/images/logo-style-spy.svg",
+      logo: "./assets/images/logo-speed-boost.svg",
       active: false,
     },
     {
       id: 4,
       name: "JSONWizard  ",
       description: "Instantly analyze and copy CSS from any webpage element",
-      logo: "./assets/images/logo-style-spy.svg",
-      active: false,
+      logo: "./assets/images/logo-json-wizard.svg",
+      active: true,
     },
     {
       id: 5,
       name: "TabMaster Pro ",
       description: "Instantly analyze and copy CSS from any webpage element",
-      logo: "./assets/images/logo-style-spy.svg",
-      active: false,
+      logo: "./assets/images/logo-tab-master-pro.svg",
+      active: true,
     },
     {
       id: 6,
       name: "ViewportBuddy  ",
       description: "Instantly analyze and copy CSS from any webpage element",
-      logo: "./assets/images/logo-style-spy.svg",
+      logo: "./assets/images/logo-viewport-buddy.svg",
       active: false,
     },
     {
       id: 7,
       name: "Markup Notes ",
       description: "Instantly analyze and copy CSS from any webpage element",
-      logo: "./assets/images/logo-style-spy.svg",
-      active: false,
+      logo: "./assets/images/logo-markup-notes.svg",
+      active: true,
     },
     {
       id: 8,
       name: "GridGuides",
       description: "Instantly analyze and copy CSS from any webpage element",
-      logo: "./assets/images/logo-style-spy.svg",
+      logo: "./assets/images/logo-grid-guides.svg",
       active: false,
     },
     {
       id: 9,
       name: "Palette Picker",
       description: "Instantly analyze and copy CSS from any webpage element",
-      logo: "./assets/images/logo-style-spy.svg",
-      active: false,
+      logo: "./assets/images/logo-palette-picker.svg",
+      active: true,
     },
     {
       id: 10,
       name: "LinkChecker",
       description: "Instantly analyze and copy CSS from any webpage element",
-      logo: "./assets/images/logo-style-spy.svg",
-      active: false,
+      logo: "./assets/images/logo-link-checker.svg",
+      active: true,
     },
     {
       id: 11,
       name: "DOM Snapshot",
       description: "Instantly analyze and copy CSS from any webpage element",
-      logo: "./assets/images/logo-style-spy.svg",
+      logo: "./assets/images/logo-dom-snapshot.svg",
       active: false,
     },
     {
       id: 12,
       name: "ConsolePlus",
       description: "Instantly analyze and copy CSS from any webpage element",
-      logo: "./assets/images/logo-style-spy.svg",
-      active: false,
+      logo: "./assets/images/logo-console-plus.svg",
+      active: true,
     },
   ]);
+  const [filter, setFilter] = useState("All");
 
   const removeService = (id) => {
     setServices(services.filter((service) => service.id !== id));
   };
+
+  const toggleActive = (id) => {
+    setServices((prevServices) =>
+      prevServices.map((service) =>
+        service.id === id ? { ...service, active: !service.active } : service
+      )
+    );
+  };
+
+  const filteredServices = services.filter((service) => {
+    if (filter === "All") return true;
+    if (filter === "Active") return service.active;
+    if (filter === "Inactive") return !service.active;
+  });
 
   return (
     <section>
@@ -136,13 +152,15 @@ function App() {
       <div className="manageLine">
         <div> Extensions List</div>
         <div className="buttons">
-          <button>All</button>
-          <button>Active</button>
-          <button>Inactive</button>
+          <Filters setFilter={setFilter} />
         </div>
       </div>
       <div>
-        <Services services={services} removeService={removeService} />
+        <Services
+          services={filteredServices}
+          removeService={removeService}
+          onToggle={toggleActive}
+        />
       </div>
     </section>
   );

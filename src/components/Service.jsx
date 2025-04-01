@@ -1,4 +1,4 @@
-const Service = ({ service, removeService }) => {
+const Service = ({ service, removeService, onToggle }) => {
   return (
     <div className="serviceBox">
       <div className="infoLine">
@@ -6,8 +6,8 @@ const Service = ({ service, removeService }) => {
           <img src={service.logo} alt="" />
         </div>
         <div>
-          <div>{service.name}</div>
-          <div>{service.description}</div>{" "}
+          <div className="serviceName">{service.name}</div>
+          <div className="serviceDescription">{service.description}</div>{" "}
         </div>
       </div>
       <div className="modeLine">
@@ -16,7 +16,11 @@ const Service = ({ service, removeService }) => {
         </div>
         <div>
           <label className="switch">
-            <input type="checkbox" />
+            <input
+              type="checkbox"
+              checked={service.active}
+              onChange={() => onToggle(service.id)}
+            />
             <span className="slider"></span>
           </label>
         </div>
