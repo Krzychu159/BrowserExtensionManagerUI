@@ -1,12 +1,27 @@
-# React + Vite
+# Browser Extension Manager UI
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React-based responsive user interface built as part of the [Frontend Mentor challenge](https://www.frontendmentor.io/challenges/browser-extension-manager-ui-yNZnOfsMAp).  
+The app provides a clean and intuitive way to view, filter, and manage browser extensions.
 
-Currently, two official plugins are available:
+🔗 **[Live Demo](https://browser-extension-manager-ui-ebon.vercel.app/)**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ Features
 
-## Expanding the ESLint configuration
+- Built with React (functional components + hooks)  
+- Load extension data dynamically from JSON  
+- Filter by: all, active, or inactive extensions  
+- Activate / deactivate extensions  
+- Remove extensions from the list  
+- Light and dark theme support  
+- Fully responsive layout for all screen sizes  
+- Accessible hover and focus states for interactive elements  
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🛠 Tech Stack
+
+- React (Vite / CRA)  
+- CSS (Flexbox & Grid for responsive layouts)  
+- JSON for extension data  
+- Custom theme toggle (light/dark mode)  
+
+---
+
